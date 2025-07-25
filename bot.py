@@ -3,10 +3,12 @@ from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import ParseMode
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from config import TOKEN, GROUP_CHAT_ID
+from pytz import timezone
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
-scheduler = AsyncIOScheduler()
+moscow = timezone("Europe/Moscow")
+scheduler = AsyncIOScheduler(timezone=moscow)
 
 report_data = {}
 
